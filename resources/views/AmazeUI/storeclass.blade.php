@@ -13,6 +13,7 @@
 
           <form class="am-form am-form-horizontal" role="form" method="POST" action="storeclass">
                                     {!! csrf_field() !!}
+          <input type="hidden" value="{{ Auth::user()->name }}" name="username">
           <table class="am-table am-table-bd am-table-striped admin-content-table">
             <thead>
             <tr>
@@ -22,9 +23,13 @@
             <tbody>
             <tr><td><input type="checkbox" name="checkbox1" value="选修课1"></td><td>选修课1</td><td><a href="#">选修老师1</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
             </tr>
+
             <tr><td><input type="checkbox" name="checkbox2" value="选修课2"></td><td>选修课2</td><td><a href="#">选修老师2</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
             </tr>
-    
+
+            <tr><td><input type="checkbox" name="checkbox3" value="选修课3"></td><td>选修课2</td><td><a href="#">选修老师3</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
+            </tr>
+
             </tbody>
           </table>
                 

@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Course;
 
+use App\Selectcourse;
+
 class CourseController extends Controller
 {
     /**
@@ -88,8 +90,17 @@ class CourseController extends Controller
     //参加选修课
     public function storeclass(Request $request)
     {
-        dd($request->all());
-        return view('AmazeUI.mastersearch')->with('searchcourse',$user);
+        
+        $input= new Selectcourse; 
+        //存入数据库
+        $input->username = $request->username;
+        $input->usercourse1 = $request->checkbox1;
+        $input->usercourse2 = $request->checkbox2;
+        $input->usercourse3 = $request->checkbox3;
+        $input->coursemaster = true;
+        dd($input);
+        $input->save();     
+        return view('AmazeUI.storeclass');
     }    
 
 }

@@ -14,6 +14,11 @@ class CreateSelectcoursesTable extends Migration
     {
         Schema::create('selectcourses', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('username');
+            $table->string('usercourse1');
+            $table->string('usercourse2');
+            $table->string('usercourse3');
+            $table->string('usermaster');
             $table->timestamps();
         });
     }
