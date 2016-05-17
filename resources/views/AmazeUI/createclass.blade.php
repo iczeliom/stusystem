@@ -77,7 +77,7 @@
                                     <div class="am-form-group">
                                         <div class="am-u-sm-10 am-u-sm-offset-2">
                                             <button type="submit" class="am-btn am-btn-primary">
-                                                <i class="fa fa-btn fa-user"></i>创建课程
+                                                <i class="fa fa-btn fa-user">创建课程</i>
                                             </button>
                                         </div>
                                     </div>

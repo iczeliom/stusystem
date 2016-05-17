@@ -53,17 +53,25 @@
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
             <li><a href="userinfo" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 <!--             判断用户身份 -->
+              @if (Auth::user()->status == '学生')
             <li><a href="storeclass"><span class="am-icon-calendar"></span> 参加选课</a></li>
             <li><a href="selectclass"><span class="am-icon-th"></span> 已选课<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
             <li><a href="classresult"><span class="am-icon-calendar"></span> 选课结果</a></li>
+              @endif
 <!--             判断用户 -->
+              @if (Auth::user()->status == '老师')
             <li><a href="selectclasses"><span class="am-icon-th"></span>选修课下学生<span class="am-badge am-badge-secondary am-margin-right am-fr">11</span></a></li>
+              @endif
           </ul>
         </li>
           <!--         判断用户 -->
+          @if (Auth::user()->status == '老师')
         <li><a href="createclass"><span class="am-icon-table"></span> 创建课程</a></li>
+          @endif
         <li><a href="classearch"><span class="am-icon-table"></span> 选修查询</a></li>
+          @if (Auth::user()->status == '学生')          
         <li><a href="mastersearch"><span class="am-icon-pencil-square-o"></span> 老师查询</a></li>
+          @endif
         <li><a href="{{ url('/logout') }}"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 

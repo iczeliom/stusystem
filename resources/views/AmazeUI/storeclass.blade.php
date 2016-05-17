@@ -10,39 +10,32 @@
 
       <div class="am-g">
         <div class="am-u-sm-12">
+
+          <form class="am-form am-form-horizontal" role="form" method="POST" action="storeclass">
+                                    {!! csrf_field() !!}
           <table class="am-table am-table-bd am-table-striped admin-content-table">
             <thead>
             <tr>
-              <th>ID</th><th>选修课程名</th><th>担任老师</th><th>选修课数量</th><th>管理</th>
+              <th>ID</th><th>选修课程名</th><th>担任老师</th><th>选修课数量</th>
             </tr>
             </thead>
             <tbody>
-            <tr><td>1</td><td>选修课1</td><td><a href="#">选修老师1</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
-              <td>
-                <div class="am-dropdown" data-am-dropdown>
-                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                  <ul class="am-dropdown-content">
-                    <li><a href="#">1. 参加</a></li>
-                </div>
-              </td>
+            <tr><td><input type="checkbox" name="checkbox1" value="选修课1"></td><td>选修课1</td><td><a href="#">选修老师1</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
             </tr>
-            <tr><td>2</td><td>选修课2</td><td><a href="#">选修老师2</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
-              <td>
-                <div class="am-dropdown" data-am-dropdown>
-                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                  <ul class="am-dropdown-content">
-                    <li><a href="#">1. 参加</a></li>
-                  </ul>
-                </div>
-              </td>
+            <tr><td><input type="checkbox" name="checkbox2" value="选修课2"></td><td>选修课2</td><td><a href="#">选修老师2</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
             </tr>
-           
-            
-
-           
+    
             </tbody>
           </table>
+                
+              <button type="submit" class="am-btn am-btn-primary">
+                  <i class="fa fa-btn fa-user">参加</i>
+              </button>
+
+           </form>
+      <!--  am-u-sm-12 --> 
         </div>
+        <!-- am-g -->
       </div>
 
     </div>

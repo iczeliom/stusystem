@@ -5,7 +5,7 @@
 <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>选课结果</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>已选课</small></div>
       </div>
 
       <div class="am-g">
@@ -21,17 +21,15 @@
               
             </tr>
             <tr><td>2</td><td>选修课2</td><td><a href="#">选修老师2</a> </td>
-              
             </tr>
-           
-            
-
-           
+          
             </tbody>
           </table>
         </div>
       </div>
-
+          <button type="submit" class="am-btn am-btn-danger">
+              <i class="fa fa-btn fa-user">重新选课</i>
+          </button>
     </div>
 
     <footer class="admin-content-footer">

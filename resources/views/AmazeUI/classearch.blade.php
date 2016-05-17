@@ -49,7 +49,7 @@
                   <table class="am-table am-table-bd am-table-striped admin-content-table">
                     <thead>
                       <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>课程名</th>
                         <th>担任老师</th>
                         <th>课程数量</th>

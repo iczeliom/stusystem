@@ -85,4 +85,11 @@ class CourseController extends Controller
         return view('AmazeUI.mastersearch')->with('searchcourse',$user);
     }
 
+    //参加选修课
+    public function storeclass(Request $request)
+    {
+        dd($request->all());
+        return view('AmazeUI.mastersearch')->with('searchcourse',$user);
+    }    
+
 }

@@ -31,7 +31,7 @@ Route::get('userinfo', function () {
 Route::get('storeclass', function () {
         return view('AmazeUI.storeclass');
 });
-Route::post('createclass','CourseController@storeclass');
+Route::post('storeclass','CourseController@storeclass');
 //已选课
 Route::get('selectclass', function () {
         return view('AmazeUI.selectclass');
