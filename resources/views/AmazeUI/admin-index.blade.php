@@ -10,6 +10,10 @@
 
       <div class="am-g">
         <div class="am-u-sm-12">
+            <!--首页公告 -->
+            <ul class="am-list">
+              <li><a href="storeclass"><marquee loop=3>请在截至日期前提交要参加的选修课。</marquee></a></li>
+            </ul>
           <table class="am-table am-table-bd am-table-striped admin-content-table">
             <thead>
             <tr>

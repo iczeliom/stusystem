@@ -10,6 +10,12 @@
 
       <div class="am-g">
         <div class="am-u-sm-12">
+              @if (Auth::user()->coursestatus == '')                
+                <ul class="am-list">
+                  <li><a href="storeclass"><marquee loop=3>该用户还没有参加选修课。</marquee></a></li>
+                </ul>
+              @endif
+              @if (!Auth::user()->coursestatus == '' || Auth::user()->name == 'admin')  
           <table class="am-table am-table-bd am-table-striped admin-content-table">
             <thead>
             <tr>
@@ -17,11 +23,8 @@
             </tr>
             </thead>
             <tbody>
+
             <tr><td>1</td><td>选修课1</td><td><a href="#">选修老师1</a></td>
-              
-            </tr>
-            <tr><td>2</td><td>选修课2</td><td><a href="#">选修老师2</a> </td>
-            </tr>
           
             </tbody>
           </table>
@@ -31,7 +34,7 @@
               <i class="fa fa-btn fa-user">重新选课</i>
           </button>
     </div>
-
+             @endif
     <footer class="admin-content-footer">
       <hr>
       <p class="am-padding-left">© 2016 Licensed under MIT license.</p>

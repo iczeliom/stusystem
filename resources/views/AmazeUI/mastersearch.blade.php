@@ -53,7 +53,6 @@
                         <th>课程名</th>
                         <th>担任老师</th>
                         <th>课程数量</th>
-                        <th>管理</th>
                       </tr>
                     </thead>
                     <tbody>

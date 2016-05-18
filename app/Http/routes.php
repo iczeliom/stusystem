@@ -28,10 +28,9 @@ Route::get('userinfo', function () {
         return view('AmazeUI.userinfo');
 });
 //参加选课
-Route::get('storeclass', function () {
-        return view('AmazeUI.storeclass');
-});
+Route::get('storeclass','CourseController@storeclassindex');
 Route::post('storeclass','CourseController@storeclass');
+
 //已选课
 Route::get('selectclass', function () {
         return view('AmazeUI.selectclass');

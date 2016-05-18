@@ -11,8 +11,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    //name=用户名，email=邮箱，密码，性别，学工号，身份，学院或专业，选课状态默认null
     protected $fillable = [
-        'name', 'email', 'password','sex','personid','status','school'
+        'name', 'email', 'password','sex','personid','status','school','coursestatus'
     ];
 
     /**

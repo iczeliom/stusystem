@@ -88,6 +88,13 @@ class CourseController extends Controller
     }
 
     //参加选修课
+    public function storeclassindex()
+    {
+        //查找数据库course,传递给视图输出
+    $output =Course::all();
+        return view('AmazeUI.storeclass')->with('output',$output);
+    }
+
     public function storeclass(Request $request)
     {
         
@@ -97,6 +104,7 @@ class CourseController extends Controller
         $input->usercourse1 = $request->checkbox1;
         $input->usercourse2 = $request->checkbox2;
         $input->usercourse3 = $request->checkbox3;
+        //true 代表用户已选选修课
         $input->coursemaster = true;
         dd($input);
         $input->save();     

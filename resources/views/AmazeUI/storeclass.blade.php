@@ -11,7 +11,7 @@
       <div class="am-g">
         <div class="am-u-sm-12">
 
-          <form class="am-form am-form-horizontal" role="form" method="POST" action="storeclass">
+          <form name="form" class="am-form am-form-horizontal" role="form" method="POST" action="storeclass">
                                     {!! csrf_field() !!}
           <input type="hidden" value="{{ Auth::user()->name }}" name="username">
           <table class="am-table am-table-bd am-table-striped admin-content-table">
@@ -21,22 +21,28 @@
             </tr>
             </thead>
             <tbody>
-            <tr><td><input type="checkbox" name="checkbox1" value="选修课1"></td><td>选修课1</td><td><a href="#">选修老师1</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
-            </tr>
-
-            <tr><td><input type="checkbox" name="checkbox2" value="选修课2"></td><td>选修课2</td><td><a href="#">选修老师2</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
-            </tr>
-
-            <tr><td><input type="checkbox" name="checkbox3" value="选修课3"></td><td>选修课2</td><td><a href="#">选修老师3</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
-            </tr>
+            <!--   循环输出课 -->
+            @foreach( $output as $name)
+                      <tr>
+                        <td><input type="checkbox" name="checkbox{{ $name->id }}" value="{{ $name->coursename }}"></td>
+                        <td> {{ $name->coursename }}</td>
+                        <td> {{ $name->coursemaster }}</td>
+                        <td><span class="am-badge am-badge-success"> {{ $name->coursenumber }}</span></td>
+                     </tr>
+            @endforeach
 
             </tbody>
           </table>
-                
-              <button type="submit" class="am-btn am-btn-primary">
+              @if (Auth::user()->coursestatus == '')                
+              <button type="submit" class="am-btn am-btn-primary am-btn-block">
                   <i class="fa fa-btn fa-user">参加</i>
               </button>
-
+              @endif
+              @if (!Auth::user()->coursestatus || Auth::user()->name == 'admin')
+              <button type="submit" class="am-btn am-btn-danger am-btn-block"  disabled="disabled">
+              参加
+              </button>
+              @endif
            </form>
       <!--  am-u-sm-12 --> 
         </div>
