@@ -16,8 +16,6 @@ class CreateSelectcoursesTable extends Migration
             $table->increments('id');
             $table->string('username');
             $table->string('usercourse1');
-            $table->string('usercourse2');
-            $table->string('usercourse3');
             $table->string('usermaster');
             $table->timestamps();
         });

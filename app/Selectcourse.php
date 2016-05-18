@@ -8,6 +8,6 @@ class Selectcourse extends Model
 {
     //
     protected $fillable = [
-        'username', 'usercourse1', 'usercourse2','usercourse3','usermaster'
+        'username', 'usercourse1','usermaster'
     ];
 }
