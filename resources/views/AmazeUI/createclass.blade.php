@@ -12,13 +12,13 @@
 
              <!-- Create Course Form... -->
                         <div class="am-panel am-panel-primary">
-                            <div class="am-panel-hd">创建课程</div>
+                            <div class="am-panel-hd">创建选题</div>
                             <div class="am-panel-bd">
                                 <form class="am-form am-form-horizontal" role="form" method="POST" action="createclass">
                                     {!! csrf_field() !!}
 
                                     <div class="am-form-group{{ $errors->has('coursename') ? ' has-error' : '' }}">
-                                        <label class="am-u-sm-2 am-form-label">课程名</label>
+                                        <label class="am-u-sm-2 am-form-label">选题名</label>
 
                                         <div class="am-u-sm-10">
                                             <input type="text" class="form-control" name="coursename" value="{{ old('coursename') }}" required="required">
@@ -46,7 +46,7 @@
                                     </div>
 
                                     <div class="am-form-group{{ $errors->has('coursenumber') ? ' has-error' : '' }}">
-                                        <label class="am-u-sm-2 am-form-label">课程数量</label>
+                                        <label class="am-u-sm-2 am-form-label">选题数量</label>
 
                                         <div class="am-u-sm-10">
                                             <input type="text" class="form-control" name="coursenumber" value="{{ old('coursenumber') }}" required="required">
@@ -60,7 +60,7 @@
                                     </div>
 
                                      <div class="am-form-group{{ $errors->has('courseschool') ? ' has-error' : '' }}">
-                                        <label class="am-u-sm-2 am-form-label">课程学院</label>
+                                        <label class="am-u-sm-2 am-form-label">学院</label>
 
                                         <div class="am-u-sm-10">
                                             <select name="courseschool">
@@ -77,7 +77,7 @@
                                     <div class="am-form-group">
                                         <div class="am-u-sm-10 am-u-sm-offset-2">
                                             <button type="submit" class="am-btn am-btn-primary">
-                                                <i class="fa fa-btn fa-user">创建课程</i>
+                                                <i class="fa fa-btn fa-user">创建选题</i>
                                             </button>
                                         </div>
                                     </div>
@@ -93,9 +93,9 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>课程名</th>
+                        <th>选题名</th>
                         <th>担任老师</th>
-                        <th>课程数量</th>
+                        <th>选题数量</th>
                         <th>管理</th>
                       </tr>
                     </thead>
