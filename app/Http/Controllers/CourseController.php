@@ -91,24 +91,34 @@ class CourseController extends Controller
     public function storeclassindex()
     {
         //查找数据库course,传递给视图输出
-    $output =Course::all();
+        $output =Course::all();
+
         return view('AmazeUI.storeclass')->with('output',$output);
     }
 
     public function storeclass(Request $request)
     {
-        
-        $input= new Selectcourse; 
-        //存入数据库
-        $input->username = $request->username;
-        $input->usercourse1 = $request->checkbox1;
-        $input->usercourse2 = $request->checkbox2;
-        $input->usercourse3 = $request->checkbox3;
-        //true 代表用户已选选修课
-        $input->coursemaster = true;
-        dd($input);
-        $input->save();     
-        return view('AmazeUI.storeclass');
+         
+         $input= new Selectcourse; 
+         $inputcourse = $request;
+         //历遍输入的选修课
+         // dd($inputcourse->checkbox);
+         $searchcourse = Selectcourse::where('username','=', $inputcourse->username)->first();
+
+         dd($searchcourse);
+            //存入数据库
+            $input->username = $inputcourse->username;
+            $input->usercourse1 = $inputcourse->checkbox;
+            //true 代表用户已选选修课
+            // $input->coursemaster = true;
+                
+        $input->save();
+
+        $output =Course::all();    
+
+       
+
+        return view('AmazeUI.storeclass')->with('output',$output,'searchcourse',$searchcourse);
     }    
 
 }

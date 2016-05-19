@@ -24,7 +24,7 @@
             <!--   循环输出课 -->
             @foreach( $output as $name)
                       <tr>
-                        <td><input type="checkbox" name="checkbox{{ $name->id }}" value="{{ $name->coursename }}"></td>
+                        <td><input type="radio" name="checkbox" value="{{ $name->coursename }}"></td>
                         <td> {{ $name->coursename }}</td>
                         <td> {{ $name->coursemaster }}</td>
                         <td><span class="am-badge am-badge-success"> {{ $name->coursenumber }}</span></td>
