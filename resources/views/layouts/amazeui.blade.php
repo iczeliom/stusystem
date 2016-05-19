@@ -54,26 +54,26 @@
             <li><a href="userinfo" class="am-cf"><span class="am-icon-th-large"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 <!--             判断用户身份 -->
               @if (Auth::user()->status == '学生' || Auth::user()->name == 'admin')
-            <li><a href="storeclass"><span class="am-icon-hand-pointer-o"></span> 参加选修课</a></li>
-            <li><a href="selectclass"><span class="am-icon-hand-paper-o"></span> 已选选修课<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
-            <li><a href="classresult"><span class="am-icon-hand-peace-o"></span> 选课结果</a></li>
+            <li><a href="storeclass"><span class="am-icon-hand-pointer-o"></span> 参加选题</a></li>
+            <li><a href="selectclass"><span class="am-icon-hand-paper-o"></span> 已选选题<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
+            <li><a href="classresult"><span class="am-icon-hand-peace-o"></span> 选题结果</a></li>
               @endif
 <!--             判断用户 -->
               @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')
-            <li><a href="selectclasses"><span class="am-icon-th"></span>选修课下学生<span class="am-badge am-badge-secondary am-margin-right am-fr">11</span></a></li>
+            <li><a href="selectclasses"><span class="am-icon-th"></span>选题下学生<span class="am-badge am-badge-secondary am-margin-right am-fr">11</span></a></li>
               @endif
           </ul>
         </li>
           <!--         判断用户 -->
           @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')
-        <li><a href="createclass"><span class="am-icon-bars"></span> 创建课程</a></li>
+        <li><a href="createclass"><span class="am-icon-bars"></span> 创建选题</a></li>
           @endif
-        <li><a href="classearch"><span class="am-icon-search"></span> 选修查询</a></li>
+        <li><a href="classearch"><span class="am-icon-search"></span> 选题查询</a></li>
           @if (Auth::user()->status == '学生')          
         <li><a href="mastersearch"><span class="am-icon-search-plus"></span> 老师查询</a></li>
           @endif
           @if (Auth::user()->name == 'admin')          
-        <li><a href="mastersearch"><span class="am-icon-calendar"></span> 设置选课时间</a></li>
+        <li><a href="mastersearch"><span class="am-icon-calendar"></span> 设置选题时间</a></li>
           @endif
         <li><a href="{{ url('/logout') }}"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>

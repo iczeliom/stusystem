@@ -101,24 +101,23 @@ class CourseController extends Controller
          
          $input= new Selectcourse; 
          $inputcourse = $request;
-         //历遍输入的选修课
-         // dd($inputcourse->checkbox);
-         $searchcourse = Selectcourse::where('username','=', $inputcourse->username)->first();
+          $input->username = $inputcourse->username;
+          $input->usercourse1 = $inputcourse->checkbox;
+          $input->save();
+         // $searchcourse = Selectcourse::where('username','=', $inputcourse->username)->first();
 
-         dd($searchcourse);
-            //存入数据库
-            $input->username = $inputcourse->username;
-            $input->usercourse1 = $inputcourse->checkbox;
-            //true 代表用户已选选修课
-            // $input->coursemaster = true;
-                
-        $input->save();
+         $output =Course::all();
 
-        $output =Course::all();    
-
-       
-
-        return view('AmazeUI.storeclass')->with('output',$output,'searchcourse',$searchcourse);
+        return view('AmazeUI.storeclass')->with('output',$output);
     }    
+
+    //输出已选选题
+    public function selectclassindex()
+    {
+        //查找数据库course,传递给视图输出
+        $output =Selectcourse::all();
+
+        return view('AmazeUI.selectclass')->with('output',$output);
+    }
 
 }

@@ -32,9 +32,8 @@ Route::get('storeclass','CourseController@storeclassindex');
 Route::post('storeclass','CourseController@storeclass');
 
 //已选课
-Route::get('selectclass', function () {
-        return view('AmazeUI.selectclass');
-});
+Route::get('selectclass', 'CourseController@selectclassindex');
+
 //选课结果
 Route::get('classresult', function () {
         return view('AmazeUI.classresult');

@@ -9,25 +9,33 @@
       </div>
 
       <div class="am-g">
-        <div class="am-u-sm-12">
+        <div class="am-u-sm-6">
               @if (Auth::user()->coursestatus == '')                
                 <ul class="am-list">
                   <li><a href="storeclass"><marquee loop=3>该用户还没有参加选修课。</marquee></a></li>
                 </ul>
               @endif
               @if (!Auth::user()->coursestatus == '' || Auth::user()->name == 'admin')  
-          <table class="am-table am-table-bd am-table-striped admin-content-table">
-            <thead>
-            <tr>
-              <th>ID</th><th>选修课程名</th><th>担任老师</th>
-            </tr>
-            </thead>
-            <tbody>
+              <div class="am-panel am-panel-primary">
+                  <!-- Table -->
+                  <table class="am-table am-table-bd am-table-striped admin-content-table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>课程名</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach( $output as $name)
+                      <tr>
+                        <td>{{$name -> id }}</td>
+                        <td> {{ $name->usercourse1 }}</td>
+                     </tr>
+                        @endforeach
+                    </tbody>
+                  </table>
+                </div>
 
-            <tr><td>1</td><td>选修课1</td><td><a href="#">选修老师1</a></td>
-          
-            </tbody>
-          </table>
         </div>
       </div>
           <button type="submit" class="am-btn am-btn-danger">
@@ -35,6 +43,8 @@
           </button>
     </div>
              @endif
+
+
     <footer class="admin-content-footer">
       <hr>
       <p class="am-padding-left">© 2016 Licensed under MIT license.</p>
