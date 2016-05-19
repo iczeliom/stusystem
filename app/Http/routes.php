@@ -35,9 +35,8 @@ Route::post('storeclass','CourseController@storeclass');
 Route::get('selectclass', 'CourseController@selectclassindex');
 
 //选题结果
-Route::get('classresult', function () {
-        return view('AmazeUI.classresult');
-});
+Route::get('classresult','ResultController@index');
+
 //选题下学生
 Route::get('selectclasses', 'CourseController@selectclassesindex');
 
