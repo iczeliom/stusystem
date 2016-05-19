@@ -120,4 +120,13 @@ class CourseController extends Controller
         return view('AmazeUI.selectclass')->with('output',$output);
     }
 
+    //选题视图
+    public function selectclassesindex()
+    {
+        //查找数据库course,传递给视图输出
+        $output =Selectcourse::all();
+
+        return view('AmazeUI.selectclasses')->with('output',$output);
+    }
+
 }

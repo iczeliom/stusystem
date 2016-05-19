@@ -27,27 +27,26 @@ Route::get('test', function () {
 Route::get('userinfo', function () {
         return view('AmazeUI.userinfo');
 });
-//参加选课
+//参加选题
 Route::get('storeclass','CourseController@storeclassindex');
 Route::post('storeclass','CourseController@storeclass');
 
 //已选课
 Route::get('selectclass', 'CourseController@selectclassindex');
 
-//选课结果
+//选题结果
 Route::get('classresult', function () {
         return view('AmazeUI.classresult');
 });
-//选修课下学生
-Route::get('selectclasses', function () {
-        return view('AmazeUI.selectclasses');
-});
-//创建课程-教师界面
+//选题下学生
+Route::get('selectclasses', 'CourseController@selectclassesindex');
+
+//创建选题-教师界面
 Route::get('createclass', 'CourseController@index');
 Route::post('createclass','CourseController@create');
 Route::post('createclass/{id}','CourseController@delete');
 
-// 选课查询
+// 选题查询
 Route::get('classearch', 'CourseController@searchindex');
 Route::post('classearch','CourseController@classearch');
 // 教师查询

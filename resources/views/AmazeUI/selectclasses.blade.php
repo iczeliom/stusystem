@@ -10,25 +10,27 @@
 
       <div class="am-g">
         <div class="am-u-sm-12">
-          <table class="am-table am-table-bd am-table-striped admin-content-table">
-            <thead>
-            <tr>
-              <th>ID</th><th>选修课程名</th><th>担任老师</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr><td>1</td><td>选修课1</td><td><a href="#">选修老师1</a></td>
-              
-            </tr>
-            <tr><td>2</td><td>选修课2</td><td><a href="#">选修老师2</a> </td>
-              
-            </tr>
-           
-            
-
-           
-            </tbody>
-          </table>
+           <div class="am-panel am-panel-primary">
+                  <!-- Table -->
+                  <table class="am-table am-table-bd am-table-striped admin-content-table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>选题用户</th>
+                        <th>选题名</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach( $output as $name)
+                      <tr>
+                        <td>{{$name -> id }}</td>
+                        <td>{{$name-> username}}</td>
+                        <td> {{ $name->usercourse1 }}</td>
+                     </tr>
+                        @endforeach
+                    </tbody>
+                  </table>
+              </div>
         </div>
       </div>
 
