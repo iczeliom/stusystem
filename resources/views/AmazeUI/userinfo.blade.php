@@ -21,7 +21,7 @@
                   <p>身份：{{ Auth::user()->status }} </p>
                   <p>学院：{{ Auth::user()->school }} </p>   
                   <p>已选选修课：{{ Auth::user()->coursestatus }}</p>               
-                  <button type="submit" class="am-btn am-btn-danger">
+                  <button type="submit" class="am-btn am-btn-danger " disabled="disabled">
                     <i class="fa fa-btn fa-user">修改个人信息</i>
                   </button>
                 </div>
@@ -41,7 +41,7 @@
                   <p>身份：{{ Auth::user()->status }} </p>
                   <p>学院：{{ Auth::user()->school }} </p>   
                   <p>已选选修课：{{ Auth::user()->coursestatus }}</p>               
-                  <button type="submit" class="am-btn am-btn-danger">
+                  <button type="submit" class="am-btn am-btn-danger " disabled="disabled">
                     <i class="fa fa-btn fa-user">修改个人信息</i>
                   </button>
                 </div>

@@ -36,7 +36,7 @@
          <div class="am-g">
         <div class="am-u-sm-12">
           <!-- Table -->
-                  <table class="am-table am-table-bd am-table-striped admin-content-table">
+                  <table class="am-table am-table-bd am-table-striped admin-content-table am-table-compact">
                     <thead>
                       <tr>
                         <th>选题意向</th>
@@ -59,7 +59,13 @@
                         <td> </td>                       
                         <td>{{$key}}</td>
                           @foreach($name2 as $name3 )
-                        <td>{{$name3}}</td>
+                        <td>
+                            @if($name3 == true)
+                              <span class="am-icon-check admin-icon-yellow"></span>
+                              @else
+                              <span class="am-icon-close"></span>                              
+                            @endif
+                        </td>
                           @endforeach                        
                        </tr>
                        @endforeach
