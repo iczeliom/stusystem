@@ -10,10 +10,10 @@ class ResultController extends Controller
 {
     public function index()
     {
-        $boys=array('Peter','Allen','Jhon','Mike','Anthony','Austin','Hugo','Howard','Jimmy','Paul');
-			//女生列表
-			$girls=array('Mary','Alice','Cindy','Janet','Natasha','Peggy','Sarah','Zoey','Mandy','Judy');
-			//男生喜好女生关联数组
+        $boys=array('同学1','同学2','同学3','同学4','同学5','同学6','同学7','同学8','同学8','同学10');
+			
+			$girls=array('选题1','选题2','选题3','选题4','选题5','选题6','选题7','选题8','选题9','选题10');
+			//用户选题关联数组
 			$favorites=array();
 			//匹配计算结果
 			$matching = array(
@@ -28,9 +28,9 @@ class ResultController extends Controller
 			//核心函数
 
 			function make_favorite($boy,$girls,&$favorites){
-				//风流指数
+				//选题数指数
 				$romantic = rand(1,5);
-				//女孩总数
+				//选题总数
 				$girls_total = count($girls);
 				$favorite_girls = array();
 				for ($i=0; $i < $romantic; $i++) { 
@@ -87,8 +87,12 @@ class ResultController extends Controller
 			//匈牙利算法
 			hungary($matching,$boys,$girls,$favorites);
 
-			dd($matching['match']);
+			// dd($favorites);
+			// dd($matching['match']);
 
-        return view('AmazeUI.storeclass');
+        return view('AmazeUI.classresult',[
+        									'favorites' => $favorites,
+        									'matching' => $matching['match']
+        										]);
     }
 }

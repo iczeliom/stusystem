@@ -73,7 +73,7 @@
         <li><a href="mastersearch"><span class="am-icon-search-plus"></span> 老师查询</a></li>
           @endif
           @if (Auth::user()->name == 'admin')          
-        <li><a href="mastersearch"><span class="am-icon-calendar"></span> 设置选题时间</a></li>
+        <li><a href="#"><span class="am-icon-calendar"></span> 设置选题时间</a></li>
           @endif
         <li><a href="{{ url('/logout') }}"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>

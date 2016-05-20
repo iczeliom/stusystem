@@ -10,27 +10,64 @@
 
       <div class="am-g">
         <div class="am-u-sm-12">
-          <table class="am-table am-table-bd am-table-striped admin-content-table">
-            <thead>
-            <tr>
-              <th>ID</th><th>选修课程名</th><th>担任老师</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr><td>1</td><td>选修课1</td><td><a href="#">选修老师1</a></td>
-              
-            </tr>
-            <tr><td>2</td><td>选修课2</td><td><a href="#">选修老师2</a> </td>
-              
-            </tr>
-           
-            
-
-           
-            </tbody>
-          </table>
+          <!-- Table -->
+                  <table class="am-table am-table-bd am-table-striped admin-content-table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>用户名</th>
+                        <th>参加选题</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($matching as $key => $name1)
+                      <tr>
+                        <td> </td>                       
+                        <td>{{$name1}}</td>
+                        <td>{{$key}}</td>                        
+                       </tr>
+                       @endforeach
+                    </tbody>
+                  </table>
+          </div>
         </div>
-      </div>
+
+
+         <div class="am-g">
+        <div class="am-u-sm-12">
+          <!-- Table -->
+                  <table class="am-table am-table-bd am-table-striped admin-content-table">
+                    <thead>
+                      <tr>
+                        <th>选题意向</th>
+                        <th>用户名</th>
+                        <th>选题1</th>
+                        <th>选题2</th>
+                        <th>选题3</th>
+                        <th>选题4</th>
+                        <th>选题5</th>
+                        <th>选题6</th>
+                        <th>选题7</th>
+                        <th>选题8</th>
+                        <th>选题9</th>
+                        <th>选题10</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($favorites as $key => $name2)
+                      <tr>
+                        <td> </td>                       
+                        <td>{{$key}}</td>
+                          @foreach($name2 as $name3 )
+                        <td>{{$name3}}</td>
+                          @endforeach                        
+                       </tr>
+                       @endforeach
+                    </tbody>
+                  </table>
+          </div>
+        </div>
+
 
     </div>
 
