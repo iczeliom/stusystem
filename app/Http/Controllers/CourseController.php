@@ -101,6 +101,8 @@ class CourseController extends Controller
         //查找数据库course,传递给视图输出
         $output =Course::all();
 
+        // $masteremail = User::where('courseschool','=',$mastername);
+
         return view('AmazeUI.storeclass')->with('output',$output);
     }
 

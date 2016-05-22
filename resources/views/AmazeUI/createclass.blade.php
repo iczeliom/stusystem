@@ -92,6 +92,7 @@
                       <tr>
                         <th>#</th>
                         <th>课题名称</th>
+                        <th>学院</th>
                         <th>导师</th>
                         <th>课题简介</th>
                         <th>管理</th>
@@ -102,6 +103,7 @@
                       <tr>
                         <td> {{ $name->id }}</td>
                         <td> {{ $name->coursename }}</td>
+                        <td> {{ $name->courseschool}}</td>
                         <td> {{ $name->coursemaster }}</td>
                         <td> {{ $name->coursenumber }}</td>
                         <td>

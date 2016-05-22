@@ -19,18 +19,25 @@
           <table class="am-table am-table-bd am-table-striped admin-content-table">
             <thead>
             <tr>
-              <th>ID</th><th>课题名称</th><th>导师</th><th>课题简介</th>
+              <th></th>
+              <th>课题名称</th>
+              <th>学院</th>
+              <th>导师</th>
+              <th>课题简介</th>
             </tr>
             </thead>
             <tbody>
             <!--   循环输出课 -->
             @foreach( $output as $name)
+                      @if ( $name->courseschool == Auth::user()->school )
                       <tr>
                         <td><input type="radio" name="checkbox" value="{{ $name->coursename }}"></td>
                         <td> {{ $name->coursename }}</td>
+                        <td> {{ $name->courseschool}}</td>
                         <td> {{ $name->coursemaster }}</td>
                         <td><span class="am-badge am-badge-success"> {{ $name->coursenumber }}</span></td>
-                     </tr>
+                      </tr>
+                     @endif
             @endforeach
 
             </tbody>

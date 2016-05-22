@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\User;
 
+use App\time;
+
 class ResultController extends Controller
 {
     public function index()
@@ -102,6 +104,27 @@ class ResultController extends Controller
         return view('AmazeUI.classresult',[
         									'favorites' => $favorites,
         									'matching' => $matching['match']
+        										]);
+    }
+
+    public function timeindex()
+    {	
+    	$time = time::all()->last();
+
+    	return view('AmazeUI.classresultime',[
+        									'time' => $time,
+        										]);
+    }
+
+    public function setime(Request $request)
+    {	
+    	$input= new time; 
+    	$input->time = $request->time;
+    	// dd($input);
+    	$input->save(); 
+    	$time = time::all()->last();
+    	return view('AmazeUI.classresultime',[
+        									'time' => $time,
         										]);
     }
 }

@@ -30,7 +30,7 @@
 
     <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
       <li class="am-dropdown" data-am-dropdown>
-        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;" data-am-scrollspy="{animation: 'slide-bottom', repeat: false, delay: 300}">
           <span class="am-icon-users"></span> 姓名:{{ Auth::user()->name }}  <span class="am-icon-caret-down"></span>
         </a>
         <ul class="am-dropdown-content">
@@ -47,35 +47,35 @@
   <div class="admin-sidebar am-offcanvas" id="admin-offcanvas" data-am-scrollspy="{animation: 'slide-left', repeat: false}">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
       <ul class="am-list admin-sidebar-list">
-        <li><a href="admin"><span class="am-icon-home"></span> 首页</a></li>
+        <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 300}"><a href="admin"><span class="am-icon-home"></span> 首页</a></li>
         <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 导航模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}" data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 350}"><span class="am-icon-file"></span> 导航模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li><a href="userinfo" class="am-cf"><span class="am-icon-th-large"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 400}"><a href="userinfo" class="am-cf"><span class="am-icon-th-large"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 <!--             判断用户身份 -->
               @if (Auth::user()->status == '学生' || Auth::user()->name == 'admin')
-            <li><a href="storeclass"><span class="am-icon-hand-pointer-o"></span> 参加选题</a></li>
-            <li><a href="selectclass"><span class="am-icon-hand-paper-o"></span> 已选选题</a></li>
-            <li><a href="classresult"><span class="am-icon-hand-peace-o"></span> 选题结果</a></li>
+            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 450}"><a href="storeclass"><span class="am-icon-hand-pointer-o"></span> 参加选题</a></li>
+            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 500}"><a href="selectclass"><span class="am-icon-hand-paper-o"></span> 已选选题</a></li>
+            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 550}"><a href="classresult"><span class="am-icon-hand-peace-o"></span> 选题结果</a></li>
               @endif
 <!--             判断用户 -->
               @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')
-            <li><a href="selectclasses"><span class="am-icon-th"></span>选题情况</a></li>
+            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 600}"><a href="selectclasses"><span class="am-icon-th"></span>选题情况</a></li>
               @endif
           </ul>
         </li>
           <!--         判断用户 -->
           @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')
-        <li><a href="createclass"><span class="am-icon-bars"></span> 创建选题</a></li>
+        <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 650}"><a href="createclass"><span class="am-icon-bars"></span> 创建选题</a></li>
           @endif
-        <li><a href="classearch"><span class="am-icon-search"></span> 选题查询</a></li>
+        <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 700}"><a href="classearch"><span class="am-icon-search"></span> 选题查询</a></li>
           @if (Auth::user()->status == '学生')          
-        <li><a href="mastersearch"><span class="am-icon-search-plus"></span> 教师查询</a></li>
+        <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 750}"><a href="mastersearch"><span class="am-icon-search-plus"></span> 教师查询</a></li>
           @endif
           @if (Auth::user()->name == 'admin')          
-        <li><a href="#"><span class="am-icon-calendar"></span> 设置选题时间</a></li>
+        <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 800}"><a href="classresultime"><span class="am-icon-calendar"></span> 设置选题时间</a></li>
           @endif
-        <li><a href="{{ url('/logout') }}"><span class="am-icon-sign-out"></span> 注销</a></li>
+        <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 850}"><a href="{{ url('/logout') }}"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 
     </div>

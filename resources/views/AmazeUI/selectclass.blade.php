@@ -16,11 +16,7 @@
                 </ul>
               @endif
 <!--               参加选修计数 -->
-              @if (Auth::user()->coursestatus == '')                
-                <ul class="am-list">
-                  <li><a href="storeclass"><marquee loop=3>该用户还没有参加选题。</marquee></a></li>
-                </ul>
-              @endif
+             
               @if (Auth::user()->status == '学生' || Auth::user()->name == 'admin')  
               <div class="am-panel am-panel-primary">
                   <!-- Table -->
@@ -44,9 +40,9 @@
 
         </div>
       </div>
-          <button type="submit" class="am-btn am-btn-danger">
+          <!-- <button type="submit" class="am-btn am-btn-danger">
               <i class="fa fa-btn fa-user">重新选题</i>
-          </button>
+          </button> -->
     </div>
              @endif
 

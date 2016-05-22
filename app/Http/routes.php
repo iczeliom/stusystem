@@ -36,6 +36,9 @@ Route::get('selectclass', 'CourseController@selectclassindex');
 
 //选题结果
 Route::get('classresult','ResultController@index');
+//选题结果时间设置
+Route::get('classresultime','ResultController@timeindex');
+Route::post('classresultime','ResultController@setime');
 
 //选题下学生
 Route::get('selectclasses', 'CourseController@selectclassesindex');
