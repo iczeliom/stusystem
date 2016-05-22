@@ -31,7 +31,7 @@
             @foreach( $output as $name)
                       @if ( $name->courseschool == Auth::user()->school )
                       <tr>
-                        <td><input type="radio" name="checkbox" value="{{ $name->coursename }}"></td>
+                        <td><input type="radio" name="checkbox" value="{{ $name->coursename }}" ></td>
                         <td> {{ $name->coursename }}</td>
                         <td> {{ $name->courseschool}}</td>
                         <td> {{ $name->coursemaster }}</td>

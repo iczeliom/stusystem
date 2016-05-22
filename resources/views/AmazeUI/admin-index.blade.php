@@ -11,10 +11,15 @@
       <div class="am-g">
         <div class="am-u-sm-12">
             <!--首页公告 -->
-            <ul class="am-list">
-              <li><a href="storeclass"><marquee loop=3>请在截至日期前提交要选择的课题。</marquee></a></li>
-            </ul>
-          
+              @if($time == '[]')
+              <ul class="am-list">
+                  <li><a href="storeclass"><marquee loop=3>参加选题开放中。</marquee></a></li>
+              </ul>
+              @else
+              <ul class="am-list">
+                  <li><a href="storeclass"><marquee loop=3>选修结束时间{{$time->time}}，请在截至日期前提交要选择的选题。</marquee></a></li>
+              </ul>
+              @endif
         </div>
       </div>
 

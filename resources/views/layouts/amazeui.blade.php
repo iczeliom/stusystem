@@ -56,7 +56,12 @@
               @if (Auth::user()->status == '学生' || Auth::user()->name == 'admin')
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 450}"><a href="storeclass"><span class="am-icon-hand-pointer-o"></span> 参加选题</a></li>
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 500}"><a href="selectclass"><span class="am-icon-hand-paper-o"></span> 已选选题</a></li>
+
+            <input type="hidden" {{ $time = App\time::all()->last() }} >
+<!--             date时区 不一致 格林威治标准时间 -->
+                @if($time->time == date("Y-m-d") || Auth::user()->name == 'admin')    
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 550}"><a href="classresult"><span class="am-icon-hand-peace-o"></span> 选题结果</a></li>
+                @endif
               @endif
 <!--             判断用户 -->
               @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')

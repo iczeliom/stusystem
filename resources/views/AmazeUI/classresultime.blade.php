@@ -9,11 +9,12 @@
       </div>
               @if($time == '[]')
               <ul class="am-list">
-                  <li><a href="storeclass"><marquee loop=3>该用户还没有参加选题。</marquee></a></li>
+                  <li><a href="storeclass"><marquee loop=3>选题时间尚未设定。</marquee></a></li>
               </ul>
               @else
               <ul class="am-list">
-                  <li><a href="storeclass"><marquee loop=3>选修结束时间{{$time->time}}</marquee></a></li>
+                  <li><a href="storeclass"><marquee loop=3>选题结束时间{{$time->time}}</marquee></a></li>
+                 
               </ul>
               @endif
       <div class="am-g">

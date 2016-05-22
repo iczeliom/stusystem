@@ -7,7 +7,6 @@
       <div class="am-cf am-padding">
         <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>选题结果</small></div>
       </div>
-      
       <div class="am-g">
         <div class="am-u-sm-12">
           <!-- Table -->
@@ -16,7 +15,7 @@
                       <tr>
                         <th>#</th>
                         <th>用户名</th>
-                        <th>参加选题</th>
+                        <th>系统匹配选题结果</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -41,16 +40,10 @@
                       <tr>
                         <th>选题意向</th>
                         <th>用户名</th>
-                        <th>选题1</th>
-                        <th>选题2</th>
-                        <th>选题3</th>
-                        <th>选题4</th>
-                        <th>选题5</th>
-                        <th>选题6</th>
-                        <th>选题7</th>
-                        <th>选题8</th>
-                        <th>选题9</th>
-                        <th>选题10</th>
+                        <input type="hidden" {{ $classoutput = App\Course::all() }} >
+                       @foreach( $classoutput as $name)
+                        <th>{{ $name->coursename }}</th>
+                       @endforeach
                       </tr>
                     </thead>
                     <tbody>

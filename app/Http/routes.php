@@ -21,7 +21,11 @@ Route::get('test', function () {
 });
 // 后台首页
  Route::get('admin', function () {
-        return view('AmazeUI.admin-index');
+
+		 	$time = App\time::all()->last();
+        return view('AmazeUI.admin-index',[
+        									'time' => $time,
+        										]);
 });
 // 个人资料
 Route::get('userinfo', function () {

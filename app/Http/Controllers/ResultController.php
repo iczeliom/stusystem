@@ -10,6 +10,8 @@ use App\User;
 
 use App\time;
 
+use App\Course;
+
 class ResultController extends Controller
 {
     public function index()
@@ -22,8 +24,12 @@ class ResultController extends Controller
 
     	
         // $boys=array('张三','赵四','王五','张伟','李静','王芳','张敏','王伟','刘丽','刘军');
-			
-			$girls=array('选题1','选题2','选题3','选题4','选题5','选题6','选题7','选题8','选题9','选题10');
+			$classoutput =Course::all();
+			foreach( $classoutput as $name){
+    						$girls[] = $name->coursename;
+						    	};
+			// dd($girls);
+			// $girls=array('选题1','选题2');
 			//用户选题关联数组
 			$favorites=array();
 			//匹配计算结果
@@ -98,7 +104,7 @@ class ResultController extends Controller
 			//匈牙利算法
 			hungary($matching,$boys,$girls,$favorites);
 
-			// dd($favorites);
+			dd($favorites);
 			// dd($matching['match']);
 
         return view('AmazeUI.classresult',[
