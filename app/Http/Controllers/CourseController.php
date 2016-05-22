@@ -10,6 +10,8 @@ use App\Course;
 
 use App\Selectcourse;
 
+use App\User;
+
 class CourseController extends Controller
 {
     /**
@@ -73,6 +75,7 @@ class CourseController extends Controller
       public function masterindex()
     {
         $searchcourse="";
+        $emailsearh="";
         return view('AmazeUI.mastersearch')->with('searchcourse',$searchcourse);
     }
 
@@ -82,10 +85,15 @@ class CourseController extends Controller
         // $searchcourse=Course::find($mastername);
         //未找到$user=null
         // dd($searchcourse);
+        $masteremail = User::where('name','=',$mastername)->first();
+        // dd($masteremail);
         $user = Course::where('coursemaster','=', $mastername)->first();
         // dd($user);
-        return view('AmazeUI.mastersearch')->with('searchcourse',$user);
-    }
+        return view('AmazeUI.mastersearch',[
+                                          'searchcourse' => $user,
+                                          'masteremail' => $masteremail
+                                            ]);
+      }
 
     //参加选修课
     public function storeclassindex()
@@ -116,7 +124,6 @@ class CourseController extends Controller
     {
         //查找数据库course,传递给视图输出
         $output =Selectcourse::all();
-
         return view('AmazeUI.selectclass')->with('output',$output);
     }
 

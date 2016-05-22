@@ -6,13 +6,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">创建课程</div>
+                <div class="panel-heading">创建课题</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/createcourse') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('coursename') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">课程名</label>
+                            <label class="col-md-4 control-label">课题名称</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="coursename" value="{{ old('coursename') }}">
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('coursemaster') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">担任讲师</label>
+                            <label class="col-md-4 control-label">导师</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="coursemaster" value="{{ old('coursemaster') }}">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('coursenumber') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">课程数量</label>
+                            <label class="col-md-4 control-label">课题简介</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="coursenumber" value="{{ old('coursenumber') }}">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('courseschool') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">课程学院</label>
+                            <label class="col-md-4 control-label">学院</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="courseschool" value="{{ old('courseschool') }}">
@@ -71,7 +71,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>创建课程
+                                    <i class="fa fa-btn fa-user"></i>创建课题
                                 </button>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
    <!-- Current Courses -->
    <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">全部课程</div>
+      <div class="panel-heading">全部课题</div>
       <div class="panel-body">
         <p>简介.</p>
       </div>
@@ -95,9 +95,9 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>课程名</th>
-            <th>担任老师</th>
-            <th>课程数量</th>
+            <th>课题名称</th>
+            <th>导师</th>
+            <th>课题简介</th>
           </tr>
         </thead>
         <tbody>

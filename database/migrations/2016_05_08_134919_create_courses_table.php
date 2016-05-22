@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('coursename')->unique();
             $table->string('coursemaster');
-            $table->integer('coursenumber');
+            $table->string('coursenumber');
             $table->string('courseschool');
             $table->timestamps();
         });

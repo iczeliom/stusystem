@@ -4,7 +4,7 @@
 <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>常用</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>教师查询</small></div>
       </div>
 
       <div class="am-g">
@@ -12,13 +12,13 @@
 
              <!-- Create Course Form... -->
                         <div class="am-panel am-panel-primary">
-                            <div class="am-panel-hd">搜索课程老师</div>
+                            <div class="am-panel-hd">搜索教师</div>
                             <div class="am-panel-bd">
                                 <form class="am-form am-form-horizontal" role="form" method="POST" action="mastersearch">
                                     {!! csrf_field() !!}
 
                                     <div class="am-form-group{{ $errors->has('mastername') ? ' has-error' : '' }}">
-                                        <label class="am-u-sm-2 am-form-label">担任老师</label>
+                                        <label class="am-u-sm-2 am-form-label">教师</label>
 
                                         <div class="am-u-sm-10">
                                             <input type="text" class="form-control" name="mastername" value="{{ old('mastername') }}">
@@ -50,18 +50,20 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>课程名</th>
-                        <th>担任老师</th>
-                        <th>课程数量</th>
+                        <th>课题名称</th>
+                        <th>教师</th>
+                        <th>E-mail</th>
                       </tr>
                     </thead>
                     <tbody>
-                       @if(!$searchcourse==null)
+                       @if(!$searchcourse==null) 
                     <tr>
                         <td> {{ $searchcourse->id }}</td>
                         <td> {{ $searchcourse->coursename }}</td>
                         <td> {{ $searchcourse->coursemaster }}</td>
-                        <td><span class="am-badge am-badge-success"> {{ $searchcourse->coursenumber }}</span></td>
+                        <td><span class="am-badge am-badge-success"> 
+                          {{$masteremail->email}}
+                        </span></td>
                     </tr>
                         @endif
                     </tbody>

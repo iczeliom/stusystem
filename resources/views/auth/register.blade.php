@@ -95,11 +95,9 @@
                             <div class="col-md-6">
                                 <!-- <input type="text" class="form-control" name="status" value="{{ old('status') }}"> -->
                                     <select class="form-control" name="school" value="{{ old('school')}}">
-                                      <option>理学院 School of Sciences</option>
-                                      <option>材料与纺织学院 Faculty of Materials andTextiles</option>
-                                      <option>服装学院 School of FashionDesign Engineering</option>
-                                      <option>信息学院 Faculty of Informatics</option>
-                                      <option>外国语学院 School of Foreign LanguagesStudies</option>
+                                      <option>理学院 </option>
+                                      <option>信息学院 </option>
+                                      <option>外国语学院 </option>
                                     </select>
 
                                 @if ($errors->has('status'))

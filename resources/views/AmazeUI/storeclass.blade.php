@@ -5,19 +5,21 @@
 <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>参加选课</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>参加选题</small></div>
       </div>
 
       <div class="am-g">
         <div class="am-u-sm-12">
-
+        @if($output == '[]')
+        <h1>当前没有选题可供选择</h1>
+        @endif
           <form name="form" class="am-form am-form-horizontal" role="form" method="POST" action="storeclass">
                                     {!! csrf_field() !!}
           <input type="hidden" value="{{ Auth::user()->name }}" name="username">
           <table class="am-table am-table-bd am-table-striped admin-content-table">
             <thead>
             <tr>
-              <th>ID</th><th>选修课程名</th><th>担任老师</th><th>选修课数量</th>
+              <th>ID</th><th>课题名称</th><th>导师</th><th>课题简介</th>
             </tr>
             </thead>
             <tbody>

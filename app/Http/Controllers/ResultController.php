@@ -6,11 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\User;
+
 class ResultController extends Controller
 {
     public function index()
-    {
-        $boys=array('同学1','同学2','同学3','同学4','同学5','同学6','同学7','同学8','同学8','同学10');
+    {	
+    	$output =User::all();
+    	// dd($output);
+    	foreach( $output as $name){
+    						$boys[] = $name->name;
+						    	};
+
+    	
+        // $boys=array('张三','赵四','王五','张伟','李静','王芳','张敏','王伟','刘丽','刘军');
 			
 			$girls=array('选题1','选题2','选题3','选题4','选题5','选题6','选题7','选题8','选题9','选题10');
 			//用户选题关联数组
@@ -29,7 +38,7 @@ class ResultController extends Controller
 
 			function make_favorite($boy,$girls,&$favorites){
 				//选题数指数
-				$romantic = rand(1,5);
+				$romantic = rand(1,3);
 				//选题总数
 				$girls_total = count($girls);
 				$favorite_girls = array();

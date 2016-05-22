@@ -12,13 +12,13 @@
 
              <!-- Create Course Form... -->
                         <div class="am-panel am-panel-primary">
-                            <div class="am-panel-hd">创建选题</div>
+                            <div class="am-panel-hd">创建课题</div>
                             <div class="am-panel-bd">
                                 <form class="am-form am-form-horizontal" role="form" method="POST" action="createclass">
                                     {!! csrf_field() !!}
 
                                     <div class="am-form-group{{ $errors->has('coursename') ? ' has-error' : '' }}">
-                                        <label class="am-u-sm-2 am-form-label">选题名</label>
+                                        <label class="am-u-sm-2 am-form-label">课题名称</label>
 
                                         <div class="am-u-sm-10">
                                             <input type="text" class="form-control" name="coursename" value="{{ old('coursename') }}" required="required">
@@ -32,7 +32,7 @@
                                     </div>
 
                                     <div class="am-form-group{{ $errors->has('coursemaster') ? ' has-error' : '' }}">
-                                        <label class="am-u-sm-2 am-form-label">担任讲师</label>
+                                        <label class="am-u-sm-2 am-form-label">导师</label>
 
                                         <div class="am-u-sm-10">
                                             <input type="text" class="form-control" name="coursemaster" value="{{ old('coursemaster') }}" required="required">
@@ -46,7 +46,7 @@
                                     </div>
 
                                     <div class="am-form-group{{ $errors->has('coursenumber') ? ' has-error' : '' }}">
-                                        <label class="am-u-sm-2 am-form-label">选题数量</label>
+                                        <label class="am-u-sm-2 am-form-label">课题简介</label>
 
                                         <div class="am-u-sm-10">
                                             <input type="text" class="form-control" name="coursenumber" value="{{ old('coursenumber') }}" required="required">
@@ -64,11 +64,9 @@
 
                                         <div class="am-u-sm-10">
                                             <select name="courseschool">
-                                                  <option>理学院 School of Sciences</option>
-                                                  <option>材料与纺织学院 Faculty of Materials andTextiles</option>
-                                                  <option>服装学院 School of FashionDesign Engineering</option>
-                                                  <option>信息学院 Faculty of Informatics</option>
-                                                  <option>外国语学院 School of Foreign LanguagesStudies</option>
+                                                  <option>理学院</option>
+                                                  <option>信息学院 </option>
+                                                  <option>外国语学院</option>
                                             </select>
                                             
                                         </div>
@@ -77,7 +75,7 @@
                                     <div class="am-form-group">
                                         <div class="am-u-sm-10 am-u-sm-offset-2">
                                             <button type="submit" class="am-btn am-btn-primary">
-                                                <i class="fa fa-btn fa-user">创建选题</i>
+                                                <i class="fa fa-btn fa-user">创建课题</i>
                                             </button>
                                         </div>
                                     </div>
@@ -93,9 +91,9 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>选题名</th>
-                        <th>担任老师</th>
-                        <th>选题数量</th>
+                        <th>课题名称</th>
+                        <th>导师</th>
+                        <th>课题简介</th>
                         <th>管理</th>
                       </tr>
                     </thead>
@@ -105,9 +103,9 @@
                         <td> {{ $name->id }}</td>
                         <td> {{ $name->coursename }}</td>
                         <td> {{ $name->coursemaster }}</td>
-                        <td><span class="am-badge am-badge-success"> {{ $name->coursenumber }}</span></td>
+                        <td> {{ $name->coursenumber }}</td>
                         <td>
-                            <form action="/classearch/{{ $name->id }}" method="POST">
+                            <form action="/createclass/{{ $name->id }}" method="POST">
                             {!! csrf_field() !!}
                             <button class="am-btn am-btn-default am-round am-btn-danger">删除</button>
                             </form>

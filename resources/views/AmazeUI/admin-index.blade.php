@@ -12,7 +12,7 @@
         <div class="am-u-sm-12">
             <!--首页公告 -->
             <ul class="am-list">
-              <li><a href="storeclass"><marquee loop=3>请在截至日期前提交要参加的选修课。</marquee></a></li>
+              <li><a href="storeclass"><marquee loop=3>请在截至日期前提交要选择的课题。</marquee></a></li>
             </ul>
           
         </div>
@@ -23,6 +23,7 @@
     <footer class="admin-content-footer">
       <hr>
       <p class="am-padding-left">© 2016 Licensed under MIT license.</p>
+      <p class="am-padding-left">如有疑问，请联系管理员：admin@admin.com</p>
     </footer>
   </div>
 

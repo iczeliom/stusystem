@@ -4,19 +4,17 @@
     <!-- particles.js container -->
     <div id="particles-js"></div>
 
-<div class="container">
-    <div class="row" style="position: absolute;top: 100px;width: 900px;">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
 
-                <div class="panel-body">
-                    Stusystem.
-                </div>
+    <div class="row" style=" width: 50%;  
+                              height: 50%;  
+                              overflow: auto;  
+                              margin: auto;  
+                              position: absolute;  
+                              top: 0; left: 0; bottom: 0; right: 0;  ">
+            <div class="panel panel-default">
+                <div align="center" class="panel-heading">欢迎进入毕业设计选题系统!</div>
             </div>
-        </div>
     </div>
-</div>
 
     <script src="{{ asset("/bower_components/particles.js/particles.js")}}"></script>
     <script src="{{ asset("/bower_components/particles.js/demo/js/app.js")}}"></script>
