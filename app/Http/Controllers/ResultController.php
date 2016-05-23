@@ -102,9 +102,9 @@ class ResultController extends Controller
 			//算法过程
 
 			//随机初始化喜好列表
-			foreach ($boys as $value) {
-				make_favorite($value,$girls,$favorites);
-			}
+			// foreach ($boys as $value) {
+			// 	make_favorite($value,$girls,$favorites);
+			// }
 
 
 			// $test = Selectcourse::where('username','=','admin')
@@ -117,27 +117,29 @@ class ResultController extends Controller
 
 			// 数据库查询喜好
 			// 1.历遍用户
-			$favorites2 = array();
+			// $favorites2 = array();
 			foreach ($boys as $key => $value) {
 						$girls_total = count($girls);
 						//2.厉编选题
 						for ($i=0; $i < $girls_total ; $i++) { 
 							//3.判断是否有选
-								$val = $girls[$i];
+									$val = $girls[$i];
 
 							$test = Selectcourse::where('username','=',$value)
-								->where(function($query){
-								$query->where('usercourse1','=','选题1');
+								->where(function($query) use ($val){
+								$query->where('usercourse1','=',$val);
 														})->first();
-							if (empty($test)){
-								$favorites2[$key][$i] = true;
+								// dd(!empty($test));
+
+							if (!empty($test)){
+								$favorites[$value][$val] = true;
 							}else{
-								$favorites2[$key][$i] = false;
+								$favorites[$value][$val] = false;
 							}
 							
 						}
 					}
-					dd($favorites2);
+					// dd($favorites,$favorites2);
 
 			//匈牙利算法
 			hungary($matching,$boys,$girls,$favorites);

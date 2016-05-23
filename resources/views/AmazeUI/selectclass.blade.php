@@ -28,7 +28,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach( $output as $name)
+                    <input type="hidden" {{ var_dump(App\Selectcourse::where('username','=',Auth::user()->name) )}}>
+                        @foreach( $output  as $name)
                       <tr>
                         <td>{{$name -> id }}</td>
                         <td> {{ $name->usercourse1 }}</td>
