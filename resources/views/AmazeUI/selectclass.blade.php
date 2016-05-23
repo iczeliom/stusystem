@@ -24,14 +24,16 @@
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>用户</th>
                         <th>课题名称</th>
                       </tr>
                     </thead>
                     <tbody>
-                    <input type="hidden" {{ var_dump(App\Selectcourse::where('username','=',Auth::user()->name) )}}>
+                    <input type="hidden" >
                         @foreach( $output  as $name)
                       <tr>
                         <td>{{$name -> id }}</td>
+                        <td>{{$name ->username}}</td>
                         <td> {{ $name->usercourse1 }}</td>
                      </tr>
                         @endforeach
