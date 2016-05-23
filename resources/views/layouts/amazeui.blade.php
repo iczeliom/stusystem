@@ -59,9 +59,11 @@
 
             <input type="hidden" {{ $time = App\time::all()->last() }} >
 <!--             date时区 不一致 格林威治标准时间 -->
+              @if(is_object($time))
                 @if($time->time == date("Y-m-d") || Auth::user()->name == 'admin')    
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 550}"><a href="classresult"><span class="am-icon-hand-peace-o"></span> 选题结果</a></li>
                 @endif
+              @endif
               @endif
 <!--             判断用户 -->
               @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')

@@ -11,7 +11,7 @@
       <div class="am-g">
         <div class="am-u-sm-12">
             <!--首页公告 -->
-              @if($time == '[]')
+              @if($time == null)
               <ul class="am-list">
                   <li><a href="storeclass"><marquee loop=3>参加选题开放中。</marquee></a></li>
               </ul>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\time;
 
 use App\User;
 class HomeController extends Controller
@@ -28,6 +29,11 @@ class HomeController extends Controller
         // $Users =User::all();
         // return $Users;
         // return view('home')->with('Users',$Users);
-        return view('AmazeUI.admin-index');
+        // return view('AmazeUI.admin-index');
+            $time = time::all()->last();
+            // dd($time);
+        return view('AmazeUI.admin-index',[
+                                            'time' => $time,
+                                                ]);
     }
 }

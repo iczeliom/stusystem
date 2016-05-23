@@ -7,6 +7,7 @@
       <div class="am-cf am-padding">
         <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>选题结果时间</small></div>
       </div>
+             @if(is_object($time))
               @if($time == '[]')
               <ul class="am-list">
                   <li><a href="storeclass"><marquee loop=3>选题时间尚未设定。</marquee></a></li>
@@ -17,6 +18,7 @@
                  
               </ul>
               @endif
+            @endif
       <div class="am-g">
         <div class="am-u-sm-6">
           <!-- Table -->

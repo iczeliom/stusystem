@@ -12,6 +12,8 @@ use App\time;
 
 use App\Course;
 
+use App\Selectcourse;
+
 class ResultController extends Controller
 {
     public function index()
@@ -42,6 +44,7 @@ class ResultController extends Controller
 				'max_match'=>0
 			);
 			
+
 			//核心函数
 
 			function make_favorite($boy,$girls,&$favorites){
@@ -57,6 +60,8 @@ class ResultController extends Controller
 					}
 					$favorite_girls[]=$select;
 				}
+					
+				
 				foreach ($girls as $key => $girl) {
 					if(in_array($key,$favorite_girls)){
 						$favorites[$boy][$girl] = true;
@@ -101,10 +106,43 @@ class ResultController extends Controller
 				make_favorite($value,$girls,$favorites);
 			}
 
+
+			// $test = Selectcourse::where('username','=','admin')
+			// 					->where(function($query){
+			// 					$query->where('usercourse1','=','选题1');
+			// 											})->first();
+			
+			// dd(empty($test));
+
+
+			// 数据库查询喜好
+			// 1.历遍用户
+			$favorites2 = array();
+			foreach ($boys as $key => $value) {
+						$girls_total = count($girls);
+						//2.厉编选题
+						for ($i=0; $i < $girls_total ; $i++) { 
+							//3.判断是否有选
+								$val = $girls[$i];
+
+							$test = Selectcourse::where('username','=',$value)
+								->where(function($query){
+								$query->where('usercourse1','=','选题1');
+														})->first();
+							if (empty($test)){
+								$favorites2[$key][$i] = true;
+							}else{
+								$favorites2[$key][$i] = false;
+							}
+							
+						}
+					}
+					dd($favorites2);
+
 			//匈牙利算法
 			hungary($matching,$boys,$girls,$favorites);
 
-			dd($favorites);
+			// dd($favorites);
 			// dd($matching['match']);
 
         return view('AmazeUI.classresult',[
