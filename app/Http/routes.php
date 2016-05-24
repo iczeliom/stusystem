@@ -56,9 +56,9 @@ Route::post('createclass/{id}','CourseController@delete');
 Route::get('classearch', 'CourseController@searchindex');
 Route::post('classearch','CourseController@classearch');
 // 教师查询
-Route::get('mastersearch', function () {
-        return view('AmazeUI.mastersearch');
-});
+// Route::get('mastersearch', function () {
+//         return view('AmazeUI.mastersearch');
+// });
 Route::get('mastersearch', 'CourseController@masterindex');
 Route::post('mastersearch','CourseController@mastersearch');
 

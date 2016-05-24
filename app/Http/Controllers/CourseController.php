@@ -81,14 +81,15 @@ class CourseController extends Controller
 
      public function mastersearch(Request $request)
     {
-        $mastername=$request->mastername;
+        //去空格
+        $mastername=trim($request->mastername);
         // $searchcourse=Course::find($mastername);
         //未找到$user=null
         // dd($searchcourse);
-        $masteremail = User::where('name','=',$mastername)->first();
+        $masteremail = User::where('name','like','%'.$mastername.'%')->first();
+        $name = User::where('email','=',$masteremail->email)->first();
         // dd($masteremail);
-        $user = Course::where('coursemaster','=', $mastername)->first();
-        // dd($user);
+        $user = Course::where('coursemaster','=', $name->name)->first();
         return view('AmazeUI.mastersearch',[
                                           'searchcourse' => $user,
                                           'masteremail' => $masteremail

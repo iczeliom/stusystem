@@ -35,7 +35,7 @@
                                         <label class="am-u-sm-2 am-form-label">导师</label>
 
                                         <div class="am-u-sm-10">
-                                            <input type="text" class="form-control" name="coursemaster" value="{{ old('coursemaster') }}" required="required">
+                                            <input type="text" class="form-control" name="coursemaster" value="{{ Auth::user()->name }}" required="required">
 
                                             @if ($errors->has('coursemaster'))
                                                 <span class="help-block">
@@ -63,15 +63,9 @@
                                         <label class="am-u-sm-2 am-form-label">学院</label>
 
                                         <div class="am-u-sm-10">
-                                            <select name="courseschool">
-                                                  <option>理学院</option>
-                                                  <option>信息学院 </option>
-                                                  <option>外国语学院</option>
-                                            </select>
-                                            
+                                            <input type="text" class="form-control" name="courseschool" value="{{ Auth::user()->school }}" required="required">
                                         </div>
                                     </div>
-                                    
                                     <div class="am-form-group">
                                         <div class="am-u-sm-10 am-u-sm-offset-2">
                                             <button type="submit" class="am-btn am-btn-primary">
