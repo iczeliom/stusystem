@@ -72,6 +72,11 @@
               @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 600}"><a href="selectclasses"><span class="am-icon-th"></span>选题情况</a></li>
               @endif
+<!--               手动分配
+ -->             <!--  @if (Auth::user()->name == 'admin')
+            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 630}"><a href="classall"><span class="am-icon-th"></span>手动分配</a></li>
+              @endif -->
+
           </ul>
         </li>
           <!--         判断用户 -->

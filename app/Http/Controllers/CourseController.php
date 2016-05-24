@@ -66,8 +66,7 @@ class CourseController extends Controller
         $coursename=$request->coursename;
         // $searchcourse=Course::find($coursename);
         //未找到$user=null
-        $searchcourse = Course::where('coursename','=', $coursename)->first();
-        // dd($searchcourse);
+        $searchcourse = Course::where('coursename','like', '%'.$coursename.'%')->first();
         return view('AmazeUI.classearch')->with('searchcourse',$searchcourse);
     }
 
@@ -95,6 +94,29 @@ class CourseController extends Controller
                                           'masteremail' => $masteremail
                                             ]);
       }
+
+    //分配选修
+    public function storeclassindex()
+    {
+        $output = '';
+        return view('AmazeUI.classall')->with('output',$output);
+    }
+
+    public function storeclass(Request $request)
+    {
+         
+         $input= new Selectcourse; 
+         $inputcourse = $request;
+          $input->username = $inputcourse->username;
+          $input->usercourse1 = $inputcourse->checkbox;
+          $input->save();
+         // $searchcourse = Selectcourse::where('username','=', $inputcourse->username)->first();
+
+         $output =Course::all();
+
+        return view('AmazeUI.storeclass')->with('output',$output);
+    }    
+
 
     //参加选修课
     public function storeclassindex()
