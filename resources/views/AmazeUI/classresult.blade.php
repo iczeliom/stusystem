@@ -10,8 +10,6 @@
       <div class="am-g">
         <div class="am-u-sm-12">
           <!-- Table -->
-            <form class="am-form am-form-horizontal" role="form" method="POST" action="createuserresultsave">
-            {!! csrf_field() !!}
                   <table class="am-table am-table-bd am-table-striped admin-content-table"  id="newtable">
                     <thead>
                       <tr>
@@ -32,18 +30,38 @@
                       @endforeach
                     </tbody>
                   </table>
-                  @if (Auth::user()->name == '123admin') 
-                  <button type="submit" class="am-btn am-btn-danger">
-                      <i class="fa fa-btn fa-user">保存结果</i>
-                  </button>
-                  @endif
-              </form>
+          </div>
+        </div>
+
+        <div class="am-g">
+        <div class="am-u-sm-12">
+          <!-- Table -->
+                  <table class="am-table am-table-bd am-table-striped admin-content-table"  id="newtable">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>用户名</th>
+                        <th>手动匹配选题结果</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($masteradd as $add)
+                      <tr>
+                        <td> </td>                       
+                        <td>{{$add->name}}</td>
+                        <td>{{$add->course}}</td>                        
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
           </div>
         </div>
 
         @if (Auth::user()->name == 'admin') 
           <div class="am-g">
            <div class="am-u-sm-4">
+                <form class="am-form am-form-horizontal" role="form" method="POST" action="createuserresultsave">
+                          {!! csrf_field() !!}
                       <div class="am-panel am-panel-primary">
                         <div class="am-panel-hd">
                         <h3 class="am-panel-title">手动添加用户选题结果</h3>
@@ -60,12 +78,13 @@
                             <input type="text" class="form-control" name="course"  required="required" id="course">
                       </div>
                                         
-                        <button  class="am-btn am-btn-danger" id="btn2">
+                        <button type="submit"  class="am-btn am-btn-danger" id="btn2">
                           <i class="fa fa-btn fa-user">添加</i>
                         </button>
                        
                       </div>
                       </div>
+                  </form>
               </div>
             </div>
           @endif

@@ -14,6 +14,8 @@ use App\Course;
 
 use App\Selectcourse;
 
+use App\Result;
+
 class ResultController extends Controller
 {
     public function index()
@@ -147,9 +149,13 @@ class ResultController extends Controller
 			// dd($favorites);
 			// dd($matching['match']);
 
+			 $masteradd =Result::all();
+			
+
         return view('AmazeUI.classresult',[
         									'favorites' => $favorites,
-        									'matching' => $matching['match']
+        									'matching' => $matching['match'],
+        									'masteradd' => $masteradd
         										]);
     }
 
@@ -180,7 +186,13 @@ class ResultController extends Controller
 
 	public function createuserresultsave(Request $request)
 	    {	
-	    	dd($request);
+	    	$input = new Result; 
+	    	$input->name =  $request->name;
+	    	$input->course = $request->course;
+	    	$input->save(); 
+
+
+	    	return redirect('classresult');
 	    }
 
 }

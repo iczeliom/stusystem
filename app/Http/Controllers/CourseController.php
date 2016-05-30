@@ -59,7 +59,8 @@ class CourseController extends Controller
     //选修搜索控制
       public function searchindex()
     {
-        $searchcourse="";
+        
+         $searchcourse="";
         return view('AmazeUI.classearch')->with('searchcourse',$searchcourse);
     }
 
