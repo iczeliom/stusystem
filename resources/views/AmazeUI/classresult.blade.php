@@ -12,7 +12,7 @@
           <!-- Table -->
             <form class="am-form am-form-horizontal" role="form" method="POST" action="createuserresultsave">
             {!! csrf_field() !!}
-                  <table class="am-table am-table-bd am-table-striped admin-content-table" >
+                  <table class="am-table am-table-bd am-table-striped admin-content-table"  id="newtable">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -20,7 +20,7 @@
                         <th>系统匹配选题结果</th>
                       </tr>
                     </thead>
-                    <tbody id="newtable">
+                    <tbody>
                       @foreach($matching as $key => $name1)
                       <tr>
                         <td> </td>                       
@@ -50,21 +50,20 @@
                         </div>
                       
                       <div class="am-panel-bd">
-                      <!-- <form class="am-form am-form-horizontal" role="form" method="POST" action="createuserresult">
-                                    {!! csrf_field() !!} -->
+                      
                        <div class="am-input-group">
                           <label class="am-input-group-label">姓名</label>
-                            <input type="text" class="form-control" name="name"  required="required">
+                            <input type="text" class="form-control" name="name"  required="required" id="name">
                         </div>
                        <div class="am-input-group">
                           <label class="am-input-group-label">选题</label>
-                            <input type="text" class="form-control" name="course"  required="required">
+                            <input type="text" class="form-control" name="course"  required="required" id="course">
                       </div>
                                         
                         <button  class="am-btn am-btn-danger" id="btn2">
                           <i class="fa fa-btn fa-user">添加</i>
                         </button>
-                        <!-- </form> -->
+                       
                       </div>
                       </div>
               </div>
@@ -121,9 +120,7 @@
     $(document).ready(function(){
 
       $("#btn2").click(function(){
-        alert('ok');
-  
-        $("#newtable").append("<tr>Appended item</tr>");
+        $("#newtable tr:last").after("<tr><td></td><td>"+$("#name").val()+"</td><td>"+$("#course").val()+"</td></tr>");
       });
     });
   </script>
