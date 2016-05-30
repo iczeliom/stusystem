@@ -173,4 +173,14 @@ class ResultController extends Controller
         									'time' => $time,
         										]);
     }
+	public function createuserresult(Request $request)
+	    {	
+	    	dd($request);
+	    }
+
+	public function createuserresultsave(Request $request)
+	    {	
+	    	dd($request);
+	    }
+
 }

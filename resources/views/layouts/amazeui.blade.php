@@ -12,7 +12,7 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
-
+  <script src="assets/js/jquery.min.js"></script>
    <link rel="stylesheet" href="assets/css/style2.css">
 
 </head>
