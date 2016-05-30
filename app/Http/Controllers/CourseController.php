@@ -12,6 +12,8 @@ use App\Selectcourse;
 
 use App\User;
 
+use Auth;
+
 class CourseController extends Controller
 {
     /**
@@ -112,7 +114,7 @@ class CourseController extends Controller
     {
         //查找数据库course,传递给视图输出
         $output =Course::all();
-
+        
         // $masteremail = User::where('courseschool','=',$mastername);
 
         return view('AmazeUI.storeclass')->with('output',$output);
@@ -136,9 +138,14 @@ class CourseController extends Controller
     //输出已选选题
     public function selectclassindex()
     {
+        $user2 = Auth::user();
+      
         //查找数据库course,传递给视图输出
-        $output =Selectcourse::all();
-        return view('AmazeUI.selectclass')->with('output',$output);
+        $output = Selectcourse::where('username','=', $user2->name)->get();
+        // $output =Selectcourse::all();
+        return view('AmazeUI.selectclass',[
+                                          'output' => $output
+                                            ]);
     }
 
     //选题视图
