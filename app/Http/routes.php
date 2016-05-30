@@ -29,8 +29,8 @@ Route::get('test', function () {
 });
 
 // 手动分配选修
-Route::get('storeclass','CourseController@classallindex');
-Route::post('storeclass','CourseController@classall');
+Route::get('masterclass','CourseController@classalindex');
+Route::post('masterclass','CourseController@classall');
 
 // 个人资料
 Route::get('userinfo', function () {

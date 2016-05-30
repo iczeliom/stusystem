@@ -96,26 +96,7 @@ class CourseController extends Controller
       }
 
     //分配选修
-    public function storeclassindex()
-    {
-        $output = '';
-        return view('AmazeUI.classall')->with('output',$output);
-    }
-
-    public function storeclass(Request $request)
-    {
-         
-         $input= new Selectcourse; 
-         $inputcourse = $request;
-          $input->username = $inputcourse->username;
-          $input->usercourse1 = $inputcourse->checkbox;
-          $input->save();
-         // $searchcourse = Selectcourse::where('username','=', $inputcourse->username)->first();
-
-         $output =Course::all();
-
-        return view('AmazeUI.storeclass')->with('output',$output);
-    }    
+  
 
 
     //参加选修课

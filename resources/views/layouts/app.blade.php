@@ -64,7 +64,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>注销</a></li>
+                                <li><a href="{{ url('/logout') }}">注销</a></li>
                             </ul>
                         </li>
                     @endif
