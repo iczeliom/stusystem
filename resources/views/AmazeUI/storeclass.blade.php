@@ -47,11 +47,11 @@
                   <i class="fa fa-btn fa-user">参加</i>
               </button>
               @endif
-              @if (!Auth::user()->coursestatus || Auth::user()->name == 'admin')
+              <!-- @if (!Auth::user()->coursestatus || Auth::user()->name == 'admin')
               <button type="submit" class="am-btn am-btn-danger am-btn-block"  disabled="disabled">
               参加
               </button>
-              @endif
+              @endif -->
            </form>
       <!--  am-u-sm-12 --> 
         </div>

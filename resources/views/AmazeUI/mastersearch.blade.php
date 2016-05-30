@@ -56,7 +56,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                       @if(!$searchcourse==null) 
+                    
+                       @if(!$searchcourse==null and $searchcourse != '未找到') 
                     <tr>
                         <td> {{ $searchcourse->id }}</td>
                         <td> {{ $searchcourse->coursename }}</td>

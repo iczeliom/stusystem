@@ -85,10 +85,18 @@ class CourseController extends Controller
         // $searchcourse=Course::find($mastername);
         //未找到$user=null
         // dd($searchcourse);
+        Global $masteremail;
+        Global $user;
         $masteremail = User::where('name','like','%'.$mastername.'%')->first();
+        
+        if ($masteremail == null) {
+          $user = '未找到';
+          $masteremail = '未找到';
+        }else{
         $name = User::where('email','=',$masteremail->email)->first();
         // dd($masteremail);
         $user = Course::where('coursemaster','=', $name->name)->first();
+            };
         return view('AmazeUI.mastersearch',[
                                           'searchcourse' => $user,
                                           'masteremail' => $masteremail
