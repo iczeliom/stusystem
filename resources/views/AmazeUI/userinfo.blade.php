@@ -20,13 +20,30 @@
                   <p>邮箱：{{ Auth::user()->email }}</p> 
                   <p>身份：{{ Auth::user()->status }} </p>
                   <p>学院：{{ Auth::user()->school }} </p>                 
-                  <!-- <button type="submit" class="am-btn am-btn-danger " disabled="disabled">
+                  <button id="show" class="am-btn am-btn-danger ">
                     <i class="fa fa-btn fa-user">修改个人信息</i>
-                  </button> -->
+                  </button>
                 </div>
-          </div>
-        </div>
+          </div><!-- am-g -->
+        </div><!-- am-u-sm-3 -->
 
+      <div class="am-g" style="display: none;" id="p1">
+        <div class="am-u-sm-4"  data-am-scrollspy="{animation: 'slide-right', repeat: false}">
+          <div class="am-panel am-panel-primary">
+                <div class="am-panel-hd">
+                  <h3 class="am-panel-title">修改个人资料</h3>
+                </div>
+                 <form name="form" class="am-form am-form-horizontal" role="form" method="POST" action="updateinfo">
+                        {!! csrf_field() !!}
+                  <fieldset class="am-form-set">
+                    <input type="text" name="name" placeholder="新名字" required="required">
+                    <input type="text" name="personid" placeholder="新学号" required="required">
+                    <input type="text" name="status" placeholder="新学院" required="required">
+                  </fieldset>
+                  <button type="submit" class="am-btn am-btn-primary am-btn-block">修改个人信息</button>
+                </form>
+          </div><!-- am-g -->
+        </div><!-- am-u-sm-3 -->
 
       </div>
 
@@ -42,4 +59,11 @@
     </footer>
   </div>
 
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#show").click(function(){
+  $("#p1").toggle();
+  });
+});
+</script>
   @endsection

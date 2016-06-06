@@ -29,11 +29,21 @@
             <tbody>
             <!--   循环输出课 -->
             @foreach( $output as $name)
-                      @if ( $name->courseschool == Auth::user()->school )
+                      @if ( App\Selectcourse::where('username','=', Auth::user()->name)->Where('usercourse1', $name->coursename)->first() )
                       <tr>
-                        <td><input type="radio" name="checkbox" value="{{ $name->coursename }}" ></td>
+                        <td><input type="radio" name="checkbox" value="{{ $name->coursename }}" disabled></td>
                         <td> {{ $name->coursename }}</td>
                         <td> {{ $name->courseschool}}</td>
+                        <input type="hidden" value="{{ $name->coursemaster }}" name="coursemaster">
+                        <td> {{ $name->coursemaster }}</td>
+                        <td><span class="am-badge am-badge-success"> {{ $name->coursenumber }}</span></td>
+                      </tr>
+                      @else
+                      <tr>
+                        <td><input type="radio" name="checkbox" value="{{ $name->coursename }}"></td>
+                        <td> {{ $name->coursename }}</td>
+                        <td> {{ $name->courseschool}}</td>
+                        <input type="hidden" value="{{ $name->coursemaster }}" name="coursemaster">
                         <td> {{ $name->coursemaster }}</td>
                         <td><span class="am-badge am-badge-success"> {{ $name->coursenumber }}</span></td>
                       </tr>
@@ -42,8 +52,9 @@
 
             </tbody>
           </table>
-              @if (Auth::user()->coursestatus == '')                
-              <button type="submit" class="am-btn am-btn-primary am-btn-block">
+              @if (Auth::user()->coursestatus == '') 
+
+              <button type="submit" class="am-btn am-btn-primary am-btn-block" id="my-popover">
                   <i class="fa fa-btn fa-user">参加</i>
               </button>
               @endif
@@ -65,4 +76,13 @@
       <p class="am-padding-left">© 2016 Licensed under MIT license.</p>
     </footer>
   </div>
+
+<script type="text/javascript">
+  $(function() {
+  $('#my-popover').popover({
+    content: '参加成功'
+  })
+});
+</script>
+
   @endsection

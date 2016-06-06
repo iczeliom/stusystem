@@ -56,7 +56,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @if(!$searchcourse==null)
+                          @if($searchcourse == '未找到')
+                          <tr><td>未找到相关课题</td></tr>
+                          @endif
+
+                        @if(!$searchcourse == null and !$searchcourse == '未找到' )
                     <tr>
                         <td> {{ $searchcourse->id }}</td>
                         <td> {{ $searchcourse->coursename }}</td>

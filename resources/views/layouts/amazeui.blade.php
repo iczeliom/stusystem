@@ -52,14 +52,23 @@
       <ul class="am-list admin-sidebar-list">
         <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 300}"><a href="admin"><span class="am-icon-home"></span> 首页</a></li>
         <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}" data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 350}"><span class="am-icon-file"></span> 导航模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 400}"><a href="userinfo" class="am-cf"><span class="am-icon-th-large"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+           
+<!--               手动分配
+ -->             <!--  @if (Auth::user()->name == 'admin')
+            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 630}"><a href="classall"><span class="am-icon-th"></span>手动分配</a></li>
+              @endif -->
+
+          </ul>
+        </li>
+         <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 400}"><a href="userinfo" class="am-cf"><span class="am-icon-th-large"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 <!--             判断用户身份 -->
               @if (Auth::user()->status == '学生' || Auth::user()->name == 'admin')
+              @if (Auth::user()->name != 'admin')
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 450}"><a href="storeclass"><span class="am-icon-hand-pointer-o"></span> 参加选题</a></li>
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 500}"><a href="selectclass"><span class="am-icon-hand-paper-o"></span> 已选选题</a></li>
-
+               @endif
             <input type="hidden" {{ $time = App\time::all()->last() }} >
 <!--             date时区 不一致 格林威治标准时间 -->
               @if(is_object($time))
@@ -72,13 +81,6 @@
               @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')
             <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 600}"><a href="selectclasses"><span class="am-icon-th"></span>选题情况</a></li>
               @endif
-<!--               手动分配
- -->             <!--  @if (Auth::user()->name == 'admin')
-            <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 630}"><a href="classall"><span class="am-icon-th"></span>手动分配</a></li>
-              @endif -->
-
-          </ul>
-        </li>
           <!--         判断用户 -->
           @if (Auth::user()->status == '老师' || Auth::user()->name == 'admin')
         <li data-am-scrollspy="{animation: 'slide-right', repeat: false, delay: 650}"><a href="createclass"><span class="am-icon-bars"></span> 创建选题</a></li>

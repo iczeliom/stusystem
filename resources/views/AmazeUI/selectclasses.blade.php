@@ -5,7 +5,7 @@
 <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>选题结果</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>选题情况</small></div>
       </div>
 
       <div class="am-g">

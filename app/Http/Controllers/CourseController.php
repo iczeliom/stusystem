@@ -24,8 +24,22 @@ class CourseController extends Controller
     public function index()
     {
         //查找数据库course,传递给视图输出
-    $output =Course::all();
+       $user = Auth::user();
+    $output =Course::where('coursemaster','=',$user->name)->get();
         return view('AmazeUI.createclass')->with('output',$output);
+    }
+
+    //更新用户信息
+    public function updateinfo(Request $request)
+    {
+        $username = Auth::user()->name;
+        $user = User::where('name','=',$username)->first();
+        $user ->name = $request ->name;
+        $user ->personid = $request ->personid;
+        $user ->status = $request ->status;
+        $user->save();
+   
+        return view('AmazeUI.userinfo');
     }
 
     /**
@@ -68,8 +82,14 @@ class CourseController extends Controller
         $coursename=$request->coursename;
         // $searchcourse=Course::find($coursename);
         //未找到$user=null
-        $searchcourse = Course::where('coursename','like', '%'.$coursename.'%')->first();
-        return view('AmazeUI.classearch')->with('searchcourse',$searchcourse);
+        Global $searchcourse2;
+        $searchcourse2 = Course::where('coursename','like', '%'.$coursename.'%')->first();
+        
+        if ( $searchcourse2 == null) {
+          $searchcourse2 = '未找到';
+        };
+        
+        return view('AmazeUI.classearch')->with('searchcourse',$searchcourse2);
     }
 
     //教师搜索控制
@@ -113,35 +133,42 @@ class CourseController extends Controller
     public function storeclassindex()
     {
         //查找数据库course,传递给视图输出
-        $output =Course::all();
-        
+        $user = Auth::user();
+        //所有同学院的课题
+        $output2 =Course::where('courseschool','=', $user->school)->get();        
         // $masteremail = User::where('courseschool','=',$mastername);
 
-        return view('AmazeUI.storeclass')->with('output',$output);
+        return view('AmazeUI.storeclass')->with('output',$output2);
     }
 
     public function storeclass(Request $request)
     {
-         
-         $input= new Selectcourse; 
+      if ($request->checkbox) {
+        $input= new Selectcourse; 
          $inputcourse = $request;
           $input->username = $inputcourse->username;
           $input->usercourse1 = $inputcourse->checkbox;
+          $input->usermaster = $inputcourse->coursemaster;
           $input->save();
+         
+      };
          // $searchcourse = Selectcourse::where('username','=', $inputcourse->username)->first();
 
-         $output =Course::all();
+          //查找数据库course,传递给视图输出
+        $user = Auth::user();
+        //所有同学院的课题
+        $output2 =Course::where('courseschool','=', $user->school)->get();   
 
-        return view('AmazeUI.storeclass')->with('output',$output);
+        return view('AmazeUI.storeclass')->with('output',$output2);
     }    
 
     //输出已选选题
     public function selectclassindex()
     {
-        $user2 = Auth::user();
+        $user = Auth::user();
       
         //查找数据库course,传递给视图输出
-        $output = Selectcourse::where('username','=', $user2->name)->get();
+        $output = Selectcourse::where('username','=', $user->name)->get();
         // $output =Selectcourse::all();
         return view('AmazeUI.selectclass',[
                                           'output' => $output

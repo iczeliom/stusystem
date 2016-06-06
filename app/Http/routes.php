@@ -28,6 +28,8 @@ Route::get('test', function () {
         										]);
 });
 
+Route::post('updateinfo','CourseController@updateinfo');
+
 // 手动分配选修
 Route::post('createuserresult','ResultController@createuserresult');
 

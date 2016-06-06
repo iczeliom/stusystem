@@ -23,8 +23,8 @@
                   <table class="am-table am-table-bd am-table-striped admin-content-table">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>用户</th>
+                        
+                        <th>导师</th>
                         <th>课题名称</th>
                       </tr>
                     </thead>
@@ -32,8 +32,8 @@
                     <input type="hidden" >
                         @foreach( $output  as $name)
                       <tr>
-                        <td>{{$name -> id }}</td>
-                        <td>{{$name ->username}}</td>
+                        
+                        <td>{{$name ->usermaster}}</td>
                         <td> {{ $name->usercourse1 }}</td>
                      </tr>
                         @endforeach
