@@ -56,11 +56,15 @@
                       </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
                           @if($searchcourse == '未找到')
                           <tr><td>未找到相关课题</td></tr>
                           @endif
 
                         @if(!$searchcourse == null and !$searchcourse == '未找到' )
+=======
+                        @if(!$searchcourse == null)
+>>>>>>> origin/one
                     <tr>
                         <td> {{ $searchcourse->id }}</td>
                         <td> {{ $searchcourse->coursename }}</td>
