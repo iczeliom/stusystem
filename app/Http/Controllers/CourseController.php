@@ -36,7 +36,7 @@ class CourseController extends Controller
         $user = User::where('name','=',$username)->first();
         $user ->name = $request ->name;
         $user ->personid = $request ->personid;
-        $user ->status = $request ->status;
+        $user ->school = $request ->status;
         $user->save();
    
         return view('AmazeUI.userinfo');

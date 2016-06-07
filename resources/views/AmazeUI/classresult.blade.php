@@ -21,7 +21,7 @@
                     <tbody>
                       @foreach($matching as $key => $name1)
                       <tr>
-                        <td> </td>                       
+                        <td></td>                       
                         <td>{{$name1}}</td>
                         
                         <td>{{$key}}</td>                        
@@ -106,8 +106,10 @@
                     </thead>
                     <tbody>
                       @foreach($favorites as $key => $name2)
+                      <input type="hidden" {{ $user = App\User::where('name','=',$key)->first() }} >
+                      @if($user->status == '学生')
                       <tr>
-                        <td> </td>                       
+                        <td></td>
                         <td>{{$key}}</td>
                           @foreach($name2 as $name3 )
                         <td>
@@ -119,6 +121,7 @@
                         </td>
                           @endforeach                        
                        </tr>
+                       @endif
                        @endforeach
                     </tbody>
                   </table>
